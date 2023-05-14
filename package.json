@@ -1,0 +1,19 @@
+{
+  "name": "vue1s",
+  "version": "1.0.0",
+  "description": "用1秒钟开始你的vue编程，用于练习、测试、验证于vue相关的一些验证编程场景。",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangshuang/vue1s.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "tangshuang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tangshuang/vue1s/issues"
+  },
+  "homepage": "https://github.com/tangshuang/vue1s#readme"
+}
