@@ -4,10 +4,13 @@ import createLessCompiler from './less/web/index.js'
 
 export const loadApp = (sfcSrc, options = {}) => {
     const { lessConfig = {}, moduleMapping = {}, fetchFunction = window.fetch } = options
+    const { vue = Vue } = moduleMapping
+    const { defineAsyncComponent, createApp } = vue
+
     const less = createLessCompiler(lessConfig)
     const compilerOptions = {
         moduleCache: {
-            vue: Vue,
+            vue,
             less,
             ...moduleMapping,
         },
@@ -25,7 +28,8 @@ export const loadApp = (sfcSrc, options = {}) => {
             document.head.insertBefore(style, ref)
         },
     }
-    const home = Vue.defineAsyncComponent(() => loadModule(sfcSrc, compilerOptions))
-    const app = Vue.createApp(home)
+
+    const home = defineAsyncComponent(() => loadModule(sfcSrc, compilerOptions))
+    const app = createApp(home)
     return app
 }
