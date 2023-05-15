@@ -1,8 +1,9 @@
 {
   "name": "vue1s",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "用1秒钟开始你的vue编程，用于练习、测试、验证于vue相关的一些验证编程场景。",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tangshuang/vue1s.git"
@@ -10,10 +11,22 @@
   "keywords": [
     "vue"
   ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack"
+  },
   "author": "tangshuang",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tangshuang/vue1s/issues"
   },
-  "homepage": "https://github.com/tangshuang/vue1s#readme"
+  "homepage": "https://github.com/tangshuang/vue1s#readme",
+  "dependencies": {
+    "vue": "^3.3.2",
+    "vue3-sfc-loader": "^0.8.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1"
+  }
 }

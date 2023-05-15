@@ -1,16 +1,15 @@
-import * as Vue from 'https://cdn.jsdelivr.net/npm/vue/dist/vue.esm-browser.prod.js'
-import { loadModule } from 'https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.esm.js'
+import * as Vue from 'vue'
+import { loadModule } from 'vue3-sfc-loader'
 import createLessCompiler from './less/web/index.js'
 
 export const loadApp = (sfcSrc, options = {}) => {
     const { lessConfig = {}, moduleMapping = {}, fetchFunction = window.fetch } = options
-    const { vue = Vue } = moduleMapping
-    const { defineAsyncComponent, createApp } = vue
+    const { defineAsyncComponent, createApp } = Vue
 
     const less = createLessCompiler(lessConfig)
     const compilerOptions = {
         moduleCache: {
-            vue,
+            vue: Vue,
             less,
             ...moduleMapping,
         },
@@ -33,3 +32,5 @@ export const loadApp = (sfcSrc, options = {}) => {
     const app = createApp(home)
     return app
 }
+
+export { Vue }
