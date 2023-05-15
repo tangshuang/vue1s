@@ -2,9 +2,9 @@
 
 <div id="root"></div>
 
-<script type="module">
-  import { loadApp, Vue } from '../dist/index.js'
-
+<script src="../dist/browser.js"></script>
+<script>
+  const { loadApp } = window.vue1s
   const app = loadApp('./app.vue')
   app.mount('#root')
 </script>

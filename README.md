@@ -15,6 +15,15 @@
 </script>
 ```
 
+```html
+<script src="https://unpkg.com/vue1s/dist/browser.js"></script>
+<script>
+  const { loadApp } = window.vue1s
+  const app = loadApp('./app.vue')
+  app.mount('#root')
+</script>
+```
+
 - 使用 `type=module`
 - 使用`import`时除了`vue`，不可以直接引入包，而应该从url进行import
 - 不支持ts
