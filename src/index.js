@@ -3,7 +3,7 @@ import { loadModule } from 'vue3-sfc-loader'
 import createLessCompiler from './less/web/index.js'
 
 export const loadApp = (sfcSrc, options = {}) => {
-    const { lessConfig = {}, moduleMapping = {}, fetchFunction = window.fetch } = options
+    const { lessConfig = {}, mdouleConfig = {}, fetchFunction = window.fetch } = options
     const { defineAsyncComponent, createApp } = Vue
 
     const less = createLessCompiler(lessConfig)
@@ -11,7 +11,7 @@ export const loadApp = (sfcSrc, options = {}) => {
         moduleCache: {
             vue: Vue,
             less,
-            ...moduleMapping,
+            ...mdouleConfig,
         },
         async getFile(url) {
             const res = await fetchFunction(url);
