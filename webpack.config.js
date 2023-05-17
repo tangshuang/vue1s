@@ -1,9 +1,9 @@
 const { DefinePlugin } = require('webpack')
 
 module.exports = [
-    // 无需任何依赖，全部打包进去
+    // esm
     {
-        mode: process.env.NODE_ENV === 'production' ? 'production' : 'none',
+        mode: 'none',
         entry: __dirname + '/src/index.js',
         module: {
             unknownContextCritical : false,
@@ -25,7 +25,31 @@ module.exports = [
             })
         ],
     },
-    // 无需任何依赖，全部打包进去
+    // esm压缩
+    {
+        mode: 'production',
+        entry: __dirname + '/src/index.js',
+        module: {
+            unknownContextCritical : false,
+        },
+        experiments: {
+            outputModule: true,
+        },
+        output: {
+            path: __dirname + '/dist',
+            filename: 'index.min.js',
+            library: {
+                type: "module",
+            },
+            chunkFormat: 'module',
+        },
+        plugins: [
+            new DefinePlugin({
+                'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+            })
+        ],
+    },
+    // 挂载到window上
     {
         mode: process.env.NODE_ENV === 'production' ? 'production' : 'none',
         entry: __dirname + '/src/index.js',

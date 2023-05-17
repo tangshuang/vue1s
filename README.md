@@ -9,6 +9,7 @@
 
 <script type="module">
   import { loadApp, Vue } from 'https://unpkg.com/vue1s'
+  // import { loadApp, Vue } from 'https://unpkg.com/vue1s/dist/index.min.js' // 经过压缩，体积更小
 
   const app = loadApp('./app.vue')
   app.mount('#root')
